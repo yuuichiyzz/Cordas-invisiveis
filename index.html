@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cordas Invisíveis — Manipulação, Influência e Poder | Mind Strings</title>
+<meta name="description" content="Toda conversa é uma troca de influência. Cordas Invisíveis entrega o mapa: manipulação, influência e poder com base em experimentos. Por R$ 25, pagamento seguro pela Kiwify.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23120a1f'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle' fill='%23d4af37' font-family='Georgia'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400..700&display=swap" rel="stylesheet">
+<style>
+  /* ====== EDITE AQUI (configuração) — o resto pode ficar como está ======
+     PRECO_ORIGINAL: coloque um número (ex.: 49.9) para mostrar preço riscado + % OFF
+     CONTATO_EMAIL: complete com o e-mail real
+     DEPOIMENTOS: quando recuperar os prints, adicione { src:"https://...", alt:"Print de depoimento de leitor" }
+  */
+  :root {
+    --bg: #120a1f;
+    --band: #190d2b;
+    --band2: #0d0716;
+    --line: #3a2a57;
+    --gold: #d4af37;
+    --gold-soft: #e8cf7a;
+    --text: #e9e1f5;
+    --muted: #b5a8cc;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding-bottom: 72px;
+  }
+  .display { font-family: 'Fraunces', Georgia, serif; }
+  .container { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  h1, h2, h3 { color: #fff; font-weight: 600; line-height: 1.1; text-wrap: balance; }
+  h1 { font-size: clamp(2.5rem, 7vw, 3.75rem); letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.75rem, 4.5vw, 2.5rem); letter-spacing: -0.02em; }
+  p { text-wrap: pretty; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 2px; }
+
+  /* Header */
+  header { border-bottom: 1px solid var(--line); position: relative; z-index: 2; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; max-width: 72rem; margin: 0 auto; }
+  .brand { font-family: 'Fraunces', Georgia, serif; font-size: 1.1rem; letter-spacing: 0.15em; color: var(--gold); text-decoration: none; }
+  nav { display: none; gap: 2rem; }
+  nav a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); text-decoration: none; }
+  nav a:hover { color: #fff; }
+  @media (min-width: 768px) { nav { display: flex; } }
+
+  /* Botões */
+  .btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #120a1f;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    text-align: center;
+    transition: opacity .15s ease;
+  }
+  .btn:hover { opacity: .88; }
+  .btn-big { padding: 1.15rem 2.5rem; font-size: 0.85rem; }
+  .btn-mid { padding: 0.95rem 1.75rem; font-size: 0.75rem; }
+  .link-trecho { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold-soft); text-decoration: underline; text-underline-offset: 4px; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; }
+  .hero-ropes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .hero-inner { position: relative; display: grid; gap: 3rem; padding: 4rem 1.5rem; max-width: 72rem; margin: 0 auto; align-items: center; }
+  @media (min-width: 768px) { .hero-inner { grid-template-columns: 1fr 1fr; padding: 6rem 1.5rem; } }
+  .hero-sub { margin-top: 1.5rem; max-width: 34rem; color: var(--muted); font-size: 1.1rem; }
+  .hero-ctas { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+  .hero-note { margin-top: 1.25rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); }
+  .cover-wrap { display: flex; justify-content: center; }
+  .cover { width: 16rem; height: auto; }
+  @media (min-width: 768px) { .cover { width: 20rem; } }
+
+  /* Rope draw */
+  .rope { stroke-dasharray: 900; stroke-dashoffset: 900; animation: draw 3s ease-out forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .rope { animation: none; stroke-dashoffset: 0; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Seções */
+  section { padding: 4.5rem 0; }
+  @media (min-width: 768px) { section { padding: 5.5rem 0; } }
+
+  /* Números */
+  .band { background: var(--band); }
+  .band2 { background: var(--band2); }
+  .stats { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  @media (min-width: 640px) { .stats { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+  .stat { padding: 1.5rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat-num { font-family: 'Fraunces', Georgia, serif; font-size: 2.25rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .stat p { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted); }
+
+  /* Trecho */
+  .trecho-grid { display: grid; gap: 3.5rem; align-items: center; }
+  @media (min-width: 768px) { .trecho-grid { grid-template-columns: 1fr 1fr; } }
+  blockquote { margin-top: 2rem; border-left: 2px solid var(--gold); padding-left: 1.5rem; font-family: 'Fraunces', Georgia, serif; font-size: 1.25rem; }
+  blockquote footer { margin-top: 0.75rem; font-family: 'Inter', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); }
+  .payoff { border: 1px solid var(--gold); background: var(--band); padding: 2rem; }
+  .payoff h3 { font-size: 1.5rem; }
+  .payoff p { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted); }
+  .payoff .btn { margin-top: 1.5rem; width: 100%; }
+
+  /* Por dentro (acordeão) */
+  .dentro-grid { display: grid; gap: 3rem; }
+  @media (min-width: 768px) { .dentro-grid { grid-template-columns: 1fr 2fr; } }
+  .acc { border-top: 1px solid var(--line); }
+  .acc-item { border-bottom: 1px solid var(--line); }
+  .acc-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.25rem 0; background: none; border: none; cursor: pointer; text-align: left; }
+  .acc-title { font-family: 'Fraunces', Georgia, serif; font-size: 1.125rem; color: #fff; transition: color .15s ease; }
+  .acc-item.open .acc-title, .acc-btn:hover .acc-title { color: var(--gold); }
+  .acc-sign { font-size: 1.25rem; color: var(--gold); }
+  .acc-panel { display: none; padding-bottom: 1.25rem; max-width: 42rem; color: var(--muted); }
+  .acc-item.open .acc-panel { display: block; }
+
+  /* Para quem */
+  .publico { margin-top: 2.5rem; display: grid; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  @media (min-width: 768px) { .publico { grid-template-columns: repeat(3, 1fr); } .publico > div + div { border-left: 1px solid var(--line); } }
+  .publico > div { padding: 2rem 0; border-bottom: 1px solid var(--line); }
+  @media (min-width: 768px) { .publico > div { border-bottom: none; padding: 2rem 2rem; } .publico > div:first-child { padding-left: 0; } }
+  .publico h3 { font-size: 1.25rem; color: var(--gold); }
+  .publico p { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted); }
+
+  /* Depoimentos (só aparece com prints reais) */
+  .depo-grid { margin-top: 2rem; display: grid; gap: 1.5rem; }
+  @media (min-width: 640px) { .depo-grid { grid-template-columns: 1fr 1fr; } }
+  .depo-grid img { width: 100%; height: auto; border: 1px solid var(--line); }
+
+  /* Citação */
+  .quote { max-width: 48rem; margin: 0 auto; padding: 0 1.5rem; }
+  .quote p { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.5rem, 4vw, 1.875rem); color: #fff; text-wrap: balance; }
+  .quote .autor { margin-top: 1.25rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-family: 'Inter', sans-serif; }
+
+  /* Oferta */
+  .oferta-grid { display: grid; gap: 3rem; align-items: center; max-width: 56rem; margin: 0 auto; }
+  @media (min-width: 768px) { .oferta-grid { grid-template-columns: 1fr 1fr; } }
+  .badge { display: inline-block; padding: 0.3rem 0.8rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; background: var(--gold); color: #120a1f; }
+  .precos { margin-top: 1.25rem; display: flex; align-items: baseline; gap: 1rem; }
+  .preco-original { font-size: 1.1rem; color: var(--muted); text-decoration: line-through; font-variant-numeric: tabular-nums; }
+  .preco-final { font-family: 'Fraunces', Georgia, serif; font-size: 3rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .oferta-note { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted); }
+  .oferta .btn { margin-top: 1.75rem; width: 100%; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--line); }
+  .footer-inner { max-width: 72rem; margin: 0 auto; padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); }
+  @media (min-width: 640px) { .footer-inner { flex-direction: row; justify-content: space-between; } }
+  .footer-inner a { text-decoration: none; }
+  .footer-inner a:hover { color: #fff; }
+
+  /* Barra fixa mobile */
+  .buybar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.75rem 1rem; background: var(--band2); border-top: 1px solid var(--line); }
+  .buybar-preco { font-family: 'Fraunces', Georgia, serif; font-size: 1.25rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .buybar .btn { flex: 1; padding: 0.85rem 1rem; font-size: 0.75rem; }
+  @media (min-width: 768px) { .buybar { display: none; } body { padding-bottom: 0; } }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="#topo">MIND STRINGS</a>
+      <nav>
+        <a href="#numeros">Os números</a>
+        <a href="#amostra">Trecho</a>
+        <a href="#por-dentro">Por dentro</a>
+        <a href="#comprar">Comprar</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="topo" style="padding: 0;">
+    <svg class="hero-ropes" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+      <path class="rope" d="M 80 0 C 140 200, 20 320, 160 700" fill="none" stroke="#d4af37" stroke-opacity="0.35"/>
+      <path class="rope" d="M 520 0 C 580 150, 470 330, 600 700" fill="none" stroke="#d4af37" stroke-opacity="0.2"/>
+      <path class="rope" d="M 1120 0 C 1040 250, 1180 380, 1060 700" fill="none" stroke="#d4af37" stroke-opacity="0.35"/>
+    </svg>
+    <div class="hero-inner">
+      <div>
+        <p class="label">Manipulação, Influência e Poder</p>
+        <h1 class="display" style="margin-top:1.25rem;">Alguém já está puxando as suas cordas.</h1>
+        <p class="hero-sub">Toda conversa é uma troca de influência. A diferença entre o jogador e o peão é a consciência do tabuleiro. Este livro entrega o mapa.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-big js-buy" href="https://pay.kiwify.com.br/p4ojdAi" target="_blank" rel="noopener noreferrer">Comprar agora por <span class="js-preco"></span></a>
+          <a class="link-trecho" href="#amostra">Ler um trecho grátis</a>
+        </div>
+        <p class="hero-note" id="nota-promo">Preço promocional · pagamento seguro pela Kiwify</p>
+      </div>
+      <div class="cover-wrap">
+        <svg class="cover" viewBox="0 0 300 440" role="img" aria-label="Capa do livro Cordas Invisíveis, de Mind Strings">
+          <rect width="300" height="440" fill="#1b0e30"/>
+          <g stroke="#d4af37" stroke-opacity="0.18" stroke-width="1">
+            <line x1="30" y1="0" x2="30" y2="440"/><line x1="60" y1="0" x2="60" y2="440"/><line x1="90" y1="0" x2="90" y2="440"/><line x1="120" y1="0" x2="120" y2="440"/><line x1="150" y1="0" x2="150" y2="440"/><line x1="180" y1="0" x2="180" y2="440"/><line x1="210" y1="0" x2="210" y2="440"/><line x1="240" y1="0" x2="240" y2="440"/><line x1="270" y1="0" x2="270" y2="440"/>
+            <line x1="0" y1="30" x2="300" y2="30"/><line x1="0" y1="60" x2="300" y2="60"/><line x1="0" y1="90" x2="300" y2="90"/><line x1="0" y1="120" x2="300" y2="120"/><line x1="0" y1="150" x2="300" y2="150"/><line x1="0" y1="180" x2="300" y2="180"/><line x1="0" y1="210" x2="300" y2="210"/><line x1="0" y1="240" x2="300" y2="240"/><line x1="0" y1="270" x2="300" y2="270"/><line x1="0" y1="300" x2="300" y2="300"/><line x1="0" y1="330" x2="300" y2="330"/><line x1="0" y1="360" x2="300" y2="360"/><line x1="0" y1="390" x2="300" y2="390"/><line x1="0" y1="420" x2="300" y2="420"/>
+          </g>
+          <rect x="10" y="10" width="280" height="420" fill="none" stroke="#d4af37" stroke-opacity="0.6"/>
+          <text x="150" y="150" text-anchor="middle" fill="#d4af37" font-size="38" font-weight="700" font-family="Fraunces, Georgia, serif" letter-spacing="3">CORDAS</text>
+          <text x="150" y="196" text-anchor="middle" fill="#d4af37" font-size="38" font-weight="700" font-family="Fraunces, Georgia, serif" letter-spacing="3">INVISÍVEIS</text>
+          <line x1="60" y1="226" x2="240" y2="226" stroke="#d4af37"/>
+          <text x="150" y="252" text-anchor="middle" fill="#e8cf7a" font-size="14" font-style="italic" font-family="Fraunces, Georgia, serif">Manipulação, Influência e Poder</text>
+          <line x1="60" y1="380" x2="240" y2="380" stroke="#d4af37"/>
+          <text x="150" y="404" text-anchor="middle" fill="#d4af37" font-size="12" font-family="Inter, sans-serif" letter-spacing="6">MIND STRINGS</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Números -->
+  <section class="band" id="numeros">
+    <div class="container">
+      <p class="label">Não é opinião. É experimento.</p>
+      <h2 class="display" style="margin-top:0.75rem; max-width:42rem;">O que a ciência já provou sobre dobrar a vontade de alguém.</h2>
+      <div class="stats">
+        <div class="stat"><p class="stat-num">65%</p><p>dos participantes de Milgram aplicaram o choque máximo por obediência à autoridade.</p></div>
+        <div class="stat"><p class="stat-num">17% → 50%</p><p>O efeito "porta na cara": um pedido absurdo antes do pedido real triplica a adesão.</p></div>
+        <div class="stat"><p class="stat-num">100 ms</p><p>É o que basta para formar um julgamento de confiança sobre um rosto (Willis e Todorov, 2006).</p></div>
+        <div class="stat"><p class="stat-num">67%</p><p>dos negociadores que espelharam o outro fecharam acordo, contra 12,5% dos que não espelharam.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trecho / reciprocidade -->
+  <section id="amostra">
+    <div class="container trecho-grid">
+      <div>
+        <p class="label">Um presente, sem cadastro</p>
+        <h2 class="display" style="margin-top:0.75rem;">Primeiro, um trecho do livro. De graça.</h2>
+        <blockquote>
+          Reciprocidade. Ofereça algo de valor antes de pedir algo em troca. O senso de obrigação inclina o outro a atender seus pedidos.
+          <footer>Cordas Invisíveis, Seção 6.3</footer>
+        </blockquote>
+      </div>
+      <div class="payoff">
+        <h3 class="display">Você acabou de ler isso sem pagar nada. E agora sente uma pequena vontade de retribuir.</h3>
+        <p>Isso é reciprocidade, funcionando em você. O livro mostra como ela funciona nos outros.</p>
+        <a class="btn btn-mid js-buy" href="https://pay.kiwify.com.br/p4ojdAi" target="_blank" rel="noopener noreferrer">Retribuir levando o livro · <span class="js-preco"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por dentro -->
+  <section class="band2" id="por-dentro">
+    <div class="container dentro-grid">
+      <div>
+        <p class="label">Por dentro</p>
+        <h2 class="display" style="margin-top:0.75rem;">Quatro partes. Um só tabuleiro.</h2>
+      </div>
+      <div class="acc">
+        <div class="acc-item open">
+          <button class="acc-btn" aria-expanded="true"><span class="acc-title">I. A Dualidade da Manipulação: Dark vs Light</span><span class="acc-sign">−</span></button>
+          <div class="acc-panel">O espectro da influência, de Cialdini a Kahneman. Persuasão, gatilhos mentais e a leitura do comportamento e da linguagem corporal.</div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" aria-expanded="false"><span class="acc-title">II. Dark Manipulation</span><span class="acc-sign">+</span></button>
+          <div class="acc-panel">As técnicas do lado escuro na escola e no trabalho, e por que o primeiro encontro deixa uma marca permanente.</div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" aria-expanded="false"><span class="acc-title">III. A Complexidade do Comportamento Humano</span><span class="acc-sign">+</span></button>
+          <div class="acc-panel">Motivações intrínsecas e extrínsecas, emoções e como ler os sinais não verbais: o ponto de fixação de toda corda.</div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" aria-expanded="false"><span class="acc-title">IV. Estudar, Observar, Dominar</span><span class="acc-sign">+</span></button>
+          <div class="acc-panel">Decodificação avançada, os personagens Johan Liebert, Ayanokouji e Light Yagami, camuflagem, sigilo e as leis do poder.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quem -->
+  <section>
+    <div class="container">
+      <p class="label">Para quem é</p>
+      <h2 class="display" style="margin-top:0.75rem; max-width:42rem;">Dois leitores. O mesmo mapa.</h2>
+      <div class="publico">
+        <div><h3 class="display">Quer influenciar</h3><p>Aprenda os atalhos mentais que decidem antes de a razão ser consultada e a ordem em que eles funcionam.</p></div>
+        <div><h3 class="display">Quer se proteger</h3><p>Reconheça a ilusão de escolha, a exclusividade falsa e o espelhamento no instante em que acontecem.</p></div>
+        <div><h3 class="display">Observa pessoas</h3><p>Linha de base, agrupamentos de sinais e o que de fato sustenta a leitura de microexpressões.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos reais (só aparece se houver prints na configuração) -->
+  <section class="band" id="depoimentos" hidden>
+    <div class="container">
+      <p class="label">Leitores</p>
+      <div class="depo-grid" id="depo-grid"></div>
+    </div>
+  </section>
+
+  <!-- Citação -->
+  <section class="band">
+    <div class="quote">
+      <p>"Quem vê as cordas deixa de ser marionete. Quem aprende a puxá-las descobre que o maior poder é escolher quando não puxar."</p>
+      <p class="autor">Mind Strings</p>
+    </div>
+  </section>
+
+  <!-- Oferta -->
+  <section id="comprar">
+    <div class="container oferta-grid">
+      <div class="cover-wrap">
+        <svg class="cover" viewBox="0 0 300 440" role="img" aria-label="Capa do livro Cordas Invisíveis, de Mind Strings" style="width:13rem;">
+          <rect width="300" height="440" fill="#1b0e30"/>
+          <rect x="10" y="10" width="280" height="420" fill="none" stroke="#d4af37" stroke-opacity="0.6"/>
+          <text x="150" y="150" text-anchor="middle" fill="#d4af37" font-size="38" font-weight="700" font-family="Fraunces, Georgia, serif" letter-spacing="3">CORDAS</text>
+          <text x="150" y="196" text-anchor="middle" fill="#d4af37" font-size="38" font-weight="700" font-family="Fraunces, Georgia, serif" letter-spacing="3">INVISÍVEIS</text>
+          <line x1="60" y1="226" x2="240" y2="226" stroke="#d4af37"/>
+          <text x="150" y="252" text-anchor="middle" fill="#e8cf7a" font-size="14" font-style="italic" font-family="Fraunces, Georgia, serif">Manipulação, Influência e Poder</text>
+          <line x1="60" y1="380" x2="240" y2="380" stroke="#d4af37"/>
+          <text x="150" y="404" text-anchor="middle" fill="#d4af37" font-size="12" font-family="Inter, sans-serif" letter-spacing="6">MIND STRINGS</text>
+        </svg>
+      </div>
+      <div>
+        <span class="badge" id="badge">Oferta</span>
+        <h2 class="display" style="margin-top:1rem; font-size:clamp(1.75rem,4.5vw,2.25rem);">Cordas Invisíveis</h2>
+        <div class="precos">
+          <span class="preco-original" id="preco-original" hidden></span>
+          <span class="preco-final js-preco"></span>
+        </div>
+        <p class="oferta-note" id="nota-oferta">Preço promocional · pagamento seguro pela Kiwify</p>
+        <a class="btn btn-big js-buy" href="https://pay.kiwify.com.br/p4ojdAi" target="_blank" rel="noopener noreferrer">Quero o livro por <span class="js-preco"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span style="color:#d4af37;">Mind Strings</span>
+      <a href="#" id="contato-link"><span id="contato-texto"></span></a>
+    </div>
+  </footer>
+
+  <!-- Barra fixa mobile -->
+  <div class="buybar">
+    <span class="buybar-preco js-preco"></span>
+    <a class="btn js-buy" href="https://pay.kiwify.com.br/p4ojdAi" target="_blank" rel="noopener noreferrer">Comprar agora</a>
+  </div>
+
+<script>
+  /* ================================================================
+     CONFIGURAÇÃO — edite apenas estes valores
+     ================================================================ */
+  var COMPRAR_URL = "https://pay.kiwify.com.br/p4ojdAi";
+  var PRECO = 25;                 // preço atual em reais
+  var PRECO_ORIGINAL = null;      // coloque o preço "de" (ex.: 49.9) para mostrar riscado + % OFF
+  var CONTATO_EMAIL = "@florzinha.12.yy.com"; // confira: falta o nome antes do @
+  /* Quando recuperar os prints dos depoimentos, adicione aqui:
+     { src: "https://link-do-print.jpg", alt: "Print de depoimento de leitor" } */
+  var DEPOIMENTOS = [];
+
+  /* ================================================================
+     A partir daqui não precisa mexer
+     ================================================================ */
+  function brl(v) {
+    return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  }
+
+  // Botões e preços
+  var precos = document.querySelectorAll(".js-preco");
+  for (var i = 0; i < precos.length; i++) precos[i].textContent = brl(PRECO);
+
+  var buys = document.querySelectorAll(".js-buy");
+  for (var j = 0; j < buys.length; j++) buys[j].href = COMPRAR_URL;
+
+  // Desconto
+  if (PRECO_ORIGINAL) {
+    var pct = Math.round((1 - PRECO / PRECO_ORIGINAL) * 100);
+    var original = document.getElementById("preco-original");
+    original.textContent = brl(PRECO_ORIGINAL);
+    original.hidden = false;
+    document.getElementById("badge").textContent = pct + "% OFF";
+    var nota = pct + "% de desconto · pagamento seguro pela Kiwify";
+    document.getElementById("nota-promo").textContent = nota;
+    document.getElementById("nota-oferta").textContent = nota;
+  }
+
+  // Contato
+  var link = document.getElementById("contato-link");
+  link.href = "mailto:" + CONTATO_EMAIL;
+  document.getElementById("contato-texto").textContent = "Contato: " + CONTATO_EMAIL;
+
+  // Depoimentos reais
+  if (DEPOIMENTOS.length > 0) {
+    var sec = document.getElementById("depoimentos");
+    var grid = document.getElementById("depo-grid");
+    for (var k = 0; k < DEPOIMENTOS.length; k++) {
+      var img = document.createElement("img");
+      img.src = DEPOIMENTOS[k].src;
+      img.alt = DEPOIMENTOS[k].alt;
+      img.loading = "lazy";
+      grid.appendChild(img);
+    }
+    sec.hidden = false;
+  }
+
+  // Acordeão
+  var itens = document.querySelectorAll(".acc-item");
+  for (var m = 0; m < itens.length; m++) {
+    (function (item) {
+      item.querySelector(".acc-btn").addEventListener("click", function () {
+        var aberto = item.classList.contains("open");
+        for (var n = 0; n < itens.length; n++) {
+          itens[n].classList.remove("open");
+          itens[n].querySelector(".acc-btn").setAttribute("aria-expanded", "false");
+          itens[n].querySelector(".acc-sign").textContent = "+";
+        }
+        if (!aberto) {
+          item.classList.add("open");
+          item.querySelector(".acc-btn").setAttribute("aria-expanded", "true");
+          item.querySelector(".acc-sign").textContent = "−";
+        }
+      });
+    })(itens[m]);
+  }
+</script>
+</body>
+</html>
