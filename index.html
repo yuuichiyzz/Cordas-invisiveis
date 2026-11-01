@@ -24,6 +24,8 @@
     --gold-soft: #e8cf7a;
     --text: #e9e1d5;
     --muted: #b7aea1;
+    --red-light: #f2d9dc;
+    --red: #b32632;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -154,7 +156,14 @@
   /* Oferta */
   .oferta-grid { display: grid; gap: 3rem; align-items: center; max-width: 56rem; margin: 0 auto; }
   @media (min-width: 768px) { .oferta-grid { grid-template-columns: 1fr 1fr; } }
-  .badge { display: inline-block; padding: 0.3rem 0.8rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; background: var(--gold); color: #120a1f; }
+  .badge { display: inline-block; padding: 0.3rem 0.8rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; background: var(--red); color: #fff; }
+  .label-destaque {
+  display: inline-block;
+  padding: 0.35rem 0.65rem;
+  background: var(--red);
+  color: #fff;
+  letter-spacing: 0.12em;
+  }
   .precos { margin-top: 1.25rem; display: flex; align-items: baseline; gap: 1rem; }
   .preco-original { font-size: 1.1rem; color: var(--muted); text-decoration: line-through; font-variant-numeric: tabular-nums; }
   .preco-final { font-family: 'Fraunces', Georgia, serif; font-size: 3rem; color: var(--gold); font-variant-numeric: tabular-nums; }
@@ -198,7 +207,7 @@
     </svg>
     <div class="hero-inner">
       <div>
-        <p class="label">Manipulação, Influência e Poder</p>
+        <p class="label label-destaque">Manipulação, Influência e Poder</p>
         <h1 class="display" style="margin-top:1.25rem;">Alguém já está puxando as suas cordas.</h1>
         <p class="hero-sub">Toda conversa é uma troca de influência. A diferença entre o jogador e o peão é a consciência do tabuleiro. Este livro entrega o mapa.</p>
         <div class="hero-ctas">
